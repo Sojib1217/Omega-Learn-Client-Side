@@ -2,7 +2,7 @@
   {
     "courseId": 1,
     "title": "React for Beginners",
-    "image": "https://images.unsplash.com/photo-1581091215366-87b5e9b1a1ee?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/CKRW9ND0/lautaro-andreani-UYs-BCu9-RP3-Y-unsplash.jpg",
     "price": 49,
     "duration": "10 hours",
     "category": "Web Development",
@@ -14,7 +14,7 @@
   {
     "courseId": 2,
     "title": "JavaScript Fundamentals",
-    "image": "https://images.unsplash.com/photo-1581092339995-98f56a8f772e?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/qtx97Kw/growtika-Iqi0-Rm6g-Bk-Q-unsplash.jpg",
     "price": 39,
     "duration": "8 hours",
     "category": "Web Development",
@@ -26,7 +26,7 @@
   {
     "courseId": 3,
     "title": "Node.js & Express Basics",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/JFBZvX3b/node.png",
     "price": 59,
     "duration": "12 hours",
     "category": "Backend Development",
@@ -38,7 +38,7 @@
   {
     "courseId": 4,
     "title": "UI/UX Design Essentials",
-    "image": "https://images.unsplash.com/photo-1551488835-3b6d0b74e15c?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/rf4gVwD7/tirza-van-dijk-o1-SKqmg-SDbg-unsplash.jpg",
     "price": 45,
     "duration": "6 hours",
     "category": "Design",
@@ -50,7 +50,7 @@
   {
     "courseId": 5,
     "title": "Photoshop for Beginners",
-    "image": "https://images.unsplash.com/photo-1581092915361-2a1f5c5efb16?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/Lz2pBS8m/rubaitul-azad-b-Kt-F08f5-C-Y-unsplash.jpg",
     "price": 35,
     "duration": "8 hours",
     "category": "Design",
@@ -62,7 +62,7 @@
   {
     "courseId": 6,
     "title": "Digital Marketing Fundamentals",
-    "image": "https://images.unsplash.com/photo-1558504843-4f6deee7a5d5?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/XkyZX4zP/diggity-marketing-SB0-WARG16-HI-unsplash.jpg",
     "price": 40,
     "duration": "5 hours",
     "category": "Business",
@@ -74,7 +74,7 @@
   {
     "courseId": 7,
     "title": "Python for Data Science",
-    "image": "https://images.unsplash.com/photo-1598576292320-303d6f5c36d4?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/8nJ6Nbbj/rubaitul-azad-ZIPFteu-R8k-unsplash.jpg",
     "price": 55,
     "duration": "12 hours",
     "category": "Data Science",
@@ -86,7 +86,7 @@
   {
     "courseId": 8,
     "title": "Machine Learning Basics",
-    "image": "https://images.unsplash.com/photo-1581091012184-42d42b212e03?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/xSb03j5Y/markus-winkler-f57lx37-DCM4-unsplash.jpg",
     "price": 65,
     "duration": "15 hours",
     "category": "Data Science",
@@ -98,7 +98,7 @@
   {
     "courseId": 9,
     "title": "Yoga for Beginners",
-    "image": "https://images.unsplash.com/photo-1595421514310-8a0d2db4b071?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/N2tkfY4T/kaylee-garrett-Gapr-Wy-Iw66o-unsplash.jpg",
     "price": 25,
     "duration": "7 hours",
     "category": "Lifestyle",
@@ -110,7 +110,7 @@
   {
     "courseId": 10,
     "title": "Cooking Basics",
-    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/5WQLpzFx/jason-briscoe-n4ymhyy-FY7-A-unsplash.jpg",
     "price": 30,
     "duration": "6 hours",
     "category": "Lifestyle",
@@ -122,7 +122,7 @@
   {
     "courseId": 11,
     "title": "Flutter for Mobile Apps",
-    "image": "https://images.unsplash.com/photo-1581092339963-bd3a5d4c6c4f?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/xKXRp0Xj/6078b650748b8558d46ffb7f-Flutter-app-development.png",
     "price": 60,
     "duration": "12 hours",
     "category": "Mobile Development",
@@ -134,7 +134,7 @@
   {
     "courseId": 12,
     "title": "Entrepreneurship 101",
-    "image": "https://images.unsplash.com/photo-1599838341880-cc3c935d26f0?auto=format&fit=crop&w=800&q=80",
+    "image": "https://i.ibb.co.com/9HSkd3F9/images.jpg",
     "price": 35,
     "duration": "5 hours",
     "category": "Business",

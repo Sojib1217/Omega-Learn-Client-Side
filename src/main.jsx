@@ -9,10 +9,12 @@ import Home from './page/Home.jsx'
 import MyEnrolledCourse from './page/MyEnrolledCourse.jsx'
 import MyAddedCourse from './page/MyAddedCourse.jsx'
 import AddCourse from './page/AddCourse.jsx'
-import Courses from './page/Courses.jsx'
+
 import Login from './page/Login.jsx'
 import Register from './page/Register.jsx'
 import AuthProvider from './AuthProvider/AuthProvider.jsx'
+import PrivateRoute from './components/PrivateRoute.jsx'
+import AllCourse from './page/AllCourse.jsx'
 
 
 const router = createBrowserRouter([
@@ -27,19 +29,19 @@ const router = createBrowserRouter([
       },
       {
          path:'courses',
-         element:<Courses></Courses>
+         element:<AllCourse></AllCourse>
       },
       {
         path:'myEnrolledCourse',
-        element:<MyEnrolledCourse></MyEnrolledCourse>
+        element:<PrivateRoute><MyEnrolledCourse></MyEnrolledCourse></PrivateRoute>
       },
       {
         path:'myAddedCourse',
-        element:<MyAddedCourse></MyAddedCourse>
+        element:<PrivateRoute><MyAddedCourse></MyAddedCourse></PrivateRoute>
       },
       {
         path:'addCourse',
-        element:<AddCourse></AddCourse>
+        element:<PrivateRoute><AddCourse></AddCourse></PrivateRoute>
       },
       {
         path:'login',
@@ -48,6 +50,9 @@ const router = createBrowserRouter([
       {
         path:'register',
         element:<Register></Register>
+      },
+      {
+        path:''
       }
     ]
 

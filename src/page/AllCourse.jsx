@@ -1,0 +1,20 @@
+import React, { Suspense, use } from 'react';
+import CourseCard from '../components/CourseCard';
+import Loading from './Loading/Loading';
+const coursePromise=fetch('http://localhost:3000/courses').then(res=>res.json())
+const AllCourse = () => {
+    const courses=use(coursePromise)
+    return (
+        <div className='px-4 md:px-10'>
+          
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+                {
+                courses.map(course=><CourseCard course={course}></CourseCard>)
+              }
+                </div>  
+            
+        </div>
+    );
+};
+
+export default AllCourse;

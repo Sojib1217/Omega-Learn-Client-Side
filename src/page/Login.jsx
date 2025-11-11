@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
@@ -9,6 +9,7 @@ const {signIn,signInWithGoogle}=use(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
     const [error,setError]=useState("")
     const navigate=useNavigate()
+    const location=useLocation()
 
    const handleLogin = (e) => {
         e.preventDefault();
@@ -20,9 +21,8 @@ const {signIn,signInWithGoogle}=use(AuthContext)
             .then(result => {
                 const user=result.user
                 console.log(user)
-                navigate('/')
+                 navigate(`${location.state ? location.state : '/'}`)
               
-
             })
             .catch(error => {
                 setError(error.message)
