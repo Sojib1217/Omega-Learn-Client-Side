@@ -12,6 +12,7 @@ import AddCourse from './page/AddCourse.jsx'
 import Courses from './page/Courses.jsx'
 import Login from './page/Login.jsx'
 import Register from './page/Register.jsx'
+import AuthProvider from './AuthProvider/AuthProvider.jsx'
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+   <AuthProvider>
+     <RouterProvider router={router}></RouterProvider>
+   </AuthProvider>
   </StrictMode>,
 )

@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { use } from 'react';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
 const Navbar = () => {
+    const {logout,user}=use(AuthContext)
+
+    const handleLogout=()=>{
+        logout().then(() => alert('you logout successfully')).catch(error => console.log(error))
+    }
 
  const links = <>
-    <NavLink to={'/'}  className={({ isActive }) => (isActive ? "underline text-yellow-500" : "")}> <li className='p-2 text-xl'>Home</li></NavLink>
-    <NavLink to={'/courses'}  className={({ isActive }) => (isActive ? "underline text-yellow-500" : "")}> <li className='p-2 text-xl'>Courses</li></NavLink>
+    <NavLink to={'/'}  className={({ isActive }) => (isActive ? "underline text-yellow-500" : "")}> <li className='p-2 text-xl hover:text-yellow-500'>Home</li></NavLink>
+    <NavLink to={'/courses'}  className={({ isActive }) => (isActive ? "underline text-yellow-500" : "")}> <li className='p-2 text-xl hover:text-yellow-500'>Courses</li></NavLink>
 
     <div className="dropdown">
         <div tabIndex={0} role="button" className="flex items-center justify-center px-2 py-1">
@@ -53,8 +59,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">
-                   <Link to={'/login'}><button className='px-6 py-1 border-2 border-black rounded-xl text-xl font-semibold hover:bg-black hover:text-white'>Login</button></Link>
-                   <Link to={'/register'}><button className='px-6 py-1 border-2 border-black text-white bg-black rounded-xl text-xl font-semibold hover:bg-white hover:text-black'>Sign Up</button></Link>
+                    {
+                        user ?<Link to={'/login'}><button onClick={handleLogout} className='px-6 py-1 border-2 border-black rounded-xl text-xl font-semibold hover:bg-black hover:text-white'>Logout</button></Link> : <div className='flex gap-3'>
+                    <Link to={'/login'}><button className='px-6 py-1 border-2 border-black rounded-xl text-xl font-semibold hover:bg-black hover:text-white'>Login</button></Link>
+                   <Link to={'/register'}><button className='hidden md:block px-6 py-1 border-2 border-black text-white bg-black rounded-xl text-xl font-semibold hover:bg-white hover:text-black'>Sign Up</button></Link>
+                   </div>
+                    }
+                   
+                   
                 </div>
             </div>
         </div>
