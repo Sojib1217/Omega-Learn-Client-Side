@@ -8,13 +8,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './page/Home.jsx'
 import MyEnrolledCourse from './page/MyEnrolledCourse.jsx'
 import MyAddedCourse from './page/MyAddedCourse.jsx'
-import AddCourse from './page/AddCourse.jsx'
+
 
 import Login from './page/Login.jsx'
 import Register from './page/Register.jsx'
 import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import PrivateRoute from './components/PrivateRoute.jsx'
 import AllCourse from './page/AllCourse.jsx'
+import AddCoursePage from './page/AddCoursePage.jsx'
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path:'addCourse',
-        element:<PrivateRoute><AddCourse></AddCourse></PrivateRoute>
+        element:<PrivateRoute><AddCoursePage></AddCoursePage></PrivateRoute>
       },
       {
         path:'login',

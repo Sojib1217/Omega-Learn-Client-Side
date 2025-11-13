@@ -17,8 +17,8 @@ const PopularCourses = () => {
                     className='text-4xl font-bold'>Popular Courses </h1>
                 <p
                     data-aos="fade-down"
-                    data-aos-duration="1000"
-                    data-aos-delay="200"
+                    data-aos-duration="8000"
+                    
                     className='text-xl mt-4 font-semibold'>Discover What People Are Learning!</p>
             </div>
 

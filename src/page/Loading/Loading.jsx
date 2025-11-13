@@ -2,14 +2,7 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div class="book">
-  <div class="book__pg-shadow"></div>
-  <div class="book__pg"></div>
-  <div class="book__pg book__pg--2"></div>
-  <div class="book__pg book__pg--3"></div>
-  <div class="book__pg book__pg--4"></div>
-  <div class="book__pg book__pg--5"></div>
-</div>
+        <span className="loading loading-spinner text-neutral min-h-screen text-7xl"></span>
     );
 };
 

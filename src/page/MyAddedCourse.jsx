@@ -1,9 +1,20 @@
-import React from 'react';
+import axios from 'axios';
+import React, { use } from 'react';
+import MyCourseCard from './MyCourseCard';
 
+const myCoursesPromise=fetch('http://localhost:3000/myCourse').then(res=>res.json())
 const MyAddedCourse = () => {
+    const myCourses=use(myCoursesPromise)
+    console.log(myCourses)
+    
     return (
         <div>
-            <h1>My added course</h1>
+            <h1 className='text-4xl font-bold text-center'>My Added Course</h1>
+            <div>
+                {
+                    myCourses.map(course=><MyCourseCard course={course}></MyCourseCard>)
+                }
+            </div>
         </div>
     );
 };
