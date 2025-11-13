@@ -16,6 +16,8 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import PrivateRoute from './components/PrivateRoute.jsx'
 import AllCourse from './page/AllCourse.jsx'
 import AddCoursePage from './page/AddCoursePage.jsx'
+import CourseDetails from './page/CourseDetails.jsx'
+import Loading from './page/Loading/Loading.jsx'
 
 
 const router = createBrowserRouter([
@@ -30,7 +32,8 @@ const router = createBrowserRouter([
       },
       {
          path:'courses',
-         element:<AllCourse></AllCourse>
+         element:<AllCourse></AllCourse>,
+          hydrateFallbackElement:<Loading></Loading>
       },
       {
         path:'myEnrolledCourse',
@@ -53,7 +56,11 @@ const router = createBrowserRouter([
         element:<Register></Register>
       },
       {
-        path:''
+        path:'courses/:id',
+        loader:()=>fetch(`https://omega-learn-server.vercel.app/courses`),
+        element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+        hydrateFallbackElement:<Loading></Loading>
+        
       }
     ]
 

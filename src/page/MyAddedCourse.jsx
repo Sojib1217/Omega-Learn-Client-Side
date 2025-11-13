@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { use } from 'react';
 import MyCourseCard from './MyCourseCard';
 
@@ -8,8 +8,8 @@ const MyAddedCourse = () => {
     console.log(myCourses)
     
     return (
-        <div>
-            <h1 className='text-4xl font-bold text-center'>My Added Course</h1>
+        <div className=' '>
+            <h1 className='text-4xl font-bold text-center '>My Added Course</h1>
             <div>
                 {
                     myCourses.map(course=><MyCourseCard course={course}></MyCourseCard>)

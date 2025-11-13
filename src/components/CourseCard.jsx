@@ -2,6 +2,7 @@
 import React from 'react';
 import { IoMdTime } from 'react-icons/io';
 import { PiStudent } from 'react-icons/pi';
+import { Link } from 'react-router';
 
 const CourseCard = ({ course }) => {
 
@@ -9,7 +10,7 @@ const CourseCard = ({ course }) => {
 
         // data-aos="fade-up" data-aos-delay={course.courseId * 100}
 
-        <div data-aos="fade-up" data-aos-delay={100} className="mt-10 bg-white rounded-lg shadow-lg overflow-hidden ">
+        <div data-aos="fade-up"  className="mt-10 bg-white rounded-lg shadow-lg overflow-hidden ">
             {/* Cover */}
             <div className="relative w-full h-[270px]">
                 <img
@@ -48,8 +49,8 @@ const CourseCard = ({ course }) => {
                         <div className="text-xl font-bold text-red-600">${course.price}.00</div>
                     </div>
                 </div>
-                <button
-                    className='px-6 py-1 border-2 mt-4 border-black rounded-md font-semibold hover:bg-black hover:text-white'>View Details</button>
+               <Link to={`/courses/${course._id}`}> <button
+                    className='px-6 py-1 border-2 mt-4 border-black rounded-md font-semibold hover:bg-black hover:text-white'>View Details</button></Link>
             </div>
 
         </div>
