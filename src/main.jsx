@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
@@ -17,24 +17,29 @@ import PrivateRoute from './components/PrivateRoute.jsx'
 import AllCourse from './page/AllCourse.jsx'
 import AddCoursePage from './page/AddCoursePage.jsx'
 import CourseDetails from './page/CourseDetails.jsx'
+
+import MyCourseDetails from './page/MyCourseDetails.jsx'
 import Loading from './page/Loading/Loading.jsx'
+import Error from './page/Error.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout></RootLayout>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: '/', index: true,
-        element:<Home></Home>
+        element:(<Suspense fallback={<Loading></Loading>}><Home></Home></Suspense>)
   
       },
       {
          path:'courses',
-         element:<AllCourse></AllCourse>,
-          hydrateFallbackElement:<Loading></Loading>
+         element:(<Suspense fallback={<Loading></Loading>}><AllCourse></AllCourse></Suspense>),
+         
       },
+      
       {
         path:'myEnrolledCourse',
         element:<PrivateRoute><MyEnrolledCourse></MyEnrolledCourse></PrivateRoute>
@@ -49,22 +54,34 @@ const router = createBrowserRouter([
       },
       {
         path:'login',
-        element:<Login></Login>
+        element:<Suspense fallback={<Loading></Loading>}><Login></Login></Suspense>
       },
       {
         path:'register',
-        element:<Register></Register>
+        element:<Suspense fallback={<Loading></Loading>}><Register></Register></Suspense>
       },
       {
         path:'courses/:id',
         loader:()=>fetch(`https://omega-learn-server.vercel.app/courses`),
-        element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-        hydrateFallbackElement:<Loading></Loading>
+        element:<PrivateRoute><Suspense fallback={<Loading></Loading>}><CourseDetails></CourseDetails></Suspense></PrivateRoute>,
+       
         
+      },
+      {
+        path:'myCourse/:id',
+        loader:({params})=>fetch(`http://localhost:3000/myCourse/${params.id}`),
+        element:<Suspense fallback={<Loading></Loading>}><MyCourseDetails></MyCourseDetails>,</Suspense>
+       
+
+        
+
+
       }
     ]
+   
 
-  }
+  },
+   
 ])
 
 createRoot(document.getElementById('root')).render(

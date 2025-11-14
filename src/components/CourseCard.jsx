@@ -10,7 +10,7 @@ const CourseCard = ({ course }) => {
 
         // data-aos="fade-up" data-aos-delay={course.courseId * 100}
 
-        <div data-aos="fade-up"  className="mt-10 bg-white rounded-lg shadow-lg overflow-hidden ">
+        <div data-aos="fade-down" className="mt-10 bg-white rounded-lg shadow-lg overflow-hidden transition-all hover:scale-105 hover:duration-700  ">
             {/* Cover */}
             <div className="relative w-full h-[270px]">
                 <img

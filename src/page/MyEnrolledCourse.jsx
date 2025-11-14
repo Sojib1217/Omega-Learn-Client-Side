@@ -64,7 +64,7 @@ const handleDeleteBid = (_id) => {
             <h3 className="font-bold text-center text-2xl ">{course.title}</h3>
             <div className='flex justify-between mt-6 items-center mx-10'>
                 <p className="text-gray-600 text-xl font-bold">Price ${course.price}</p>
-              <button onClick={()=>handleDeleteBid(course._id)} className='btn btn-primary text-xl'>Remove </button>
+              <button onClick={()=>handleDeleteBid(course._id)} className='btn btn-warning text-xl'>Remove </button>
             </div>
           </div>
         ))

@@ -46,12 +46,12 @@ const {signIn,signInWithGoogle}=use(AuthContext)
         setShowPassword(!showPassword)
     }
     return (
-        <div className='min-h-screen'>
+        <div className='md:min-h-screen'>
             <div className='text-center mt-10'>
                 <h1 className='text-5xl font-bold'>Account Login</h1>
                 <h3 className='my-4 text-xl'>Please Enter Your Email & Password</h3>
             </div>
-            <div className=" flex items-center justify-center bg-gray-100">
+            <div className="p-4 flex items-center justify-center bg-gray-100">
                 <div className="bg-white border rounded-xl shadow-[8px_8px_0px_#1a1a1a] p-10 w-[450px]">
                     <form onSubmit={handleLogin}>
                         <fieldset>

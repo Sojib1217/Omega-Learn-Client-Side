@@ -15,12 +15,13 @@ console.log(user)
         const title = e.target.title.value;
         const image = e.target.image.value;
         const price = e.target.price.value;
+        const userEmail=user.email;
         const duration = e.target.duration.value;
         const category = e.target.category.value;
         const description = e.target.description.value;
         const isFeatured = e.target.isFeatured.value;
         const newCourse = {
-            title, image, price, duration, category, description, isFeatured
+            title, image, price,userEmail, duration, category, description, isFeatured
         }
         console.log(title, image, price, duration, category, description, isFeatured)
 
@@ -35,6 +36,7 @@ console.log(user)
                     });
                 }
             })
+            e.target.reset()
 
 
 
