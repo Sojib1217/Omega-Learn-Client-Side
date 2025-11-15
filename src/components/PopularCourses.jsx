@@ -4,7 +4,7 @@ import CourseCard from './CourseCard';
 
 
 
-const popularCoursePromise = fetch('http://localhost:3000/popularCourses').then(res => res.json())
+const popularCoursePromise = fetch('https://omega-learn-server.vercel.app/popularCourses').then(res => res.json())
 const PopularCourses = () => {
     const popularCourses = use(popularCoursePromise)
     console.log(popularCourses)
@@ -14,11 +14,11 @@ const PopularCourses = () => {
                 <h1
                     data-aos="fade-down"
                     data-aos-duration="800"
-                    className='text-4xl font-bold'>Popular Courses </h1>
+                    className='text-4xl font-bold'>Popular <span className='text-amber-700'>Courses</span> </h1>
                 <p
                     data-aos="fade-down"
                     data-aos-duration="800"
-                    
+
                     className='text-xl mt-4 font-semibold'>Discover What People Are Learning!</p>
             </div>
 

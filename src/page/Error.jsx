@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const Error = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 px-4">
-      <h1 className="text-9xl font-extrabold">404</h1>
+      <h1 className="text-9xl font-extrabold ">404</h1>
       <p className="text-2xl md:text-3xl mt-4 font-semibold">
         Oops! Page not found.
       </p>

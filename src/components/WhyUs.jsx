@@ -8,7 +8,7 @@ const WhyUs = () => {
     return (
         <div className='mt-16'> 
         <h1 data-aos="fade-up"
-           data-aos-duration="800" className='text-4xl font-bold text-center mb-10'>Why Choose Us</h1>
+           data-aos-duration="800" className='text-4xl font-bold text-center mb-10'><span className='text-amber-700'>Why</span> Choose Us</h1>
             <div className='bg-[#0B163F] text-gray-200 px-4 md:px-20 '>
             
             <h1 data-aos="fade-up"

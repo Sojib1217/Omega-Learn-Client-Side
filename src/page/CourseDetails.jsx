@@ -14,7 +14,7 @@ const CourseDetails = () => {
   const { id } = useParams()
   const courseData = useLoaderData()
   const [course, setCourse] = useState([])
-  const [disabled,setDisabled]=useState(false)
+  const [disabled, setDisabled] = useState(false)
 
   const handleEnroll = () => {
     const enrollData = {
@@ -25,7 +25,7 @@ const CourseDetails = () => {
       userEmail: user.email,
     };
 
-    axios.post(`http://localhost:3000/enrollCourse`, enrollData)
+    axios.post(`https://omega-learn-server.vercel.app/enrollCourse`, enrollData)
       .then(data => {
         console.log(data.data);
         setDisabled(true)
@@ -89,13 +89,13 @@ const CourseDetails = () => {
                 <p className="text-3xl font-bold text-gray-900">${course.price}</p>
               </div>
               {
-                disabled ?  <button disabled onClick={handleEnroll} className=" bg-amber-500 px-6 py-3 font-semibold text-white  rounded hover:scale-105 duration-300">
-                Enrolled
-              </button> : <button onClick={handleEnroll} className=" bg-amber-500 px-6 py-3 font-semibold text-white  rounded hover:scale-105 duration-300">
-                Enroll Now
-              </button>
+                disabled ? <button disabled onClick={handleEnroll} className=" bg-amber-500 px-6 py-3 font-semibold text-white  rounded hover:scale-105 duration-300">
+                  Enrolled
+                </button> : <button onClick={handleEnroll} className=" bg-amber-500 px-6 py-3 font-semibold text-white  rounded hover:scale-105 duration-300">
+                  Enroll Now
+                </button>
               }
-             
+
             </div>
           </div>
 

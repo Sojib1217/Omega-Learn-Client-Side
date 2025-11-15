@@ -6,21 +6,21 @@ import Swal from 'sweetalert2';
 
 
 const MyEnrolledCourse = () => {
-       
-    const {user}=use(AuthContext)
 
-    const [courses,setCourses]=useState([])
+    const { user } = use(AuthContext)
 
-    useEffect(()=>{
-        if(user?.email){
-        axios.get(`http://localhost:3000/enrollCourse?email=${user.email}`)
-        .then(data=>{
-            setCourses(data.data)
-        })
-         }
-    },[user])
+    const [courses, setCourses] = useState([])
 
-const handleDeleteBid = (_id) => {
+    useEffect(() => {
+        if (user?.email) {
+            axios.get(`https://omega-learn-server.vercel.app/enrollCourse?email=${user.email}`)
+                .then(data => {
+                    setCourses(data.data)
+                })
+        }
+    }, [user])
+
+    const handleDeleteBid = (_id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -32,7 +32,7 @@ const handleDeleteBid = (_id) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:3000/enrollCourse/${_id}`)
+                axios.delete(`https://omega-learn-server.vercel.app/enrollCourse/${_id}`)
                     .then(data => {
                         if (data.data.deletedCount) {
                             Swal.fire({
@@ -51,25 +51,25 @@ const handleDeleteBid = (_id) => {
             }
         });
     }
- 
+
 
     return (
         <div className='px-4 md:px-20  mt-10 min-h-screen'>
-            <h1 className='text-4xl font-bold text-center mb-10' >My Enrolled courses</h1>
-             <div className="grid md:grid-cols-3 gap-6">
-        {
-      courses.map((course) => (
-          <div key={course._id} className="border p-4 rounded-lg shadow-sm">
-            <img src={course.image} alt={course.title} className="rounded-md mb-3 w-full h-[300px]" />
-            <h3 className="font-bold text-center text-2xl ">{course.title}</h3>
-            <div className='flex justify-between mt-6 items-center mx-10'>
-                <p className="text-gray-600 text-xl font-bold">Price ${course.price}</p>
-              <button onClick={()=>handleDeleteBid(course._id)} className='btn btn-warning text-xl'>Remove </button>
+            <h1 className='text-4xl font-bold text-center mb-10' >My Enrolled <span className='text-amber-700'>Courses</span></h1>
+            <div className="grid md:grid-cols-3 gap-6">
+                {
+                    courses.map((course) => (
+                        <div key={course._id} className="border p-4 rounded-lg shadow-sm">
+                            <img src={course.image} alt={course.title} className="rounded-md mb-3 w-full h-[300px]" />
+                            <h3 className="font-bold text-center text-2xl ">{course.title}</h3>
+                            <div className='flex justify-between mt-6 items-center mx-10'>
+                                <p className="text-gray-600 text-xl font-bold">Price ${course.price}</p>
+                                <button onClick={() => handleDeleteBid(course._id)} className='btn btn-warning text-xl'>Remove </button>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
-          </div>
-        ))
-        }
-      </div>
         </div>
     );
 };

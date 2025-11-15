@@ -8,13 +8,13 @@ import { motion } from "framer-motion";
 
 
 const MyAddedCourse = () => {
-  const { user } = use(AuthContext); 
+  const { user } = use(AuthContext);
   const [myCourses, setMyCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
 
   const [selectedCourse, setSelectedCourse] = useState(null);
-const text = "My Added Course!";
+  const text = "My Added Course!";
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const text = "My Added Course!";
 
   const updateModal = useRef(null);
 
- 
+
   useEffect(() => {
     if (!user?.email) {
       setMyCourses([]);
@@ -49,7 +49,7 @@ const text = "My Added Course!";
     }
 
     setLoading(true);
-    axios.get(`http://localhost:3000/myCourse?email=${user.email}`)
+    axios.get(`https://omega-learn-server.vercel.app/myCourse?email=${user.email}`)
       .then((res) => {
         setMyCourses(res.data || []);
       })
@@ -58,7 +58,7 @@ const text = "My Added Course!";
       .finally(() => setLoading(false));
   }, [user?.email]);
 
- 
+
   useEffect(() => {
     if (selectedCourse) {
       setForm({
@@ -71,7 +71,7 @@ const text = "My Added Course!";
         isFeatured: !!selectedCourse.isFeatured,
       });
     } else {
-      
+
       setForm({
         title: "",
         image: "",
@@ -96,9 +96,9 @@ const text = "My Added Course!";
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/myCourse/${_id}`)
+          .delete(`https://omega-learn-server.vercel.app/myCourse/${_id}`)
           .then((res) => {
-           
+
             if (res.data?.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
@@ -106,11 +106,11 @@ const text = "My Added Course!";
                 icon: "success",
               });
               setMyCourses((prev) => prev.filter((c) => c._id !== _id));
-            } 
+            }
           })
           .catch(() => {
             // console.error(err);
-          ;
+            ;
           });
       }
     });
@@ -120,15 +120,15 @@ const text = "My Added Course!";
     setSelectedCourse(course);
     // show modal (native dialog)
     if (updateModal.current) {
-        updateModal.current.showModal();
+      updateModal.current.showModal();
     }
   };
 
   const closeUpdateModal = () => {
     if (updateModal.current) {
-    updateModal.current.close();
+      updateModal.current.close();
     }
-   ;
+    ;
   };
 
   const handleFormChange = (e) => {
@@ -153,7 +153,7 @@ const text = "My Added Course!";
       isFeatured: !!form.isFeatured,
     };
 
-    axios.patch(`http://localhost:3000/myCourse/${selectedCourse._id}`, updateInfo)
+    axios.patch(`https://omega-learn-server.vercel.app/myCourse/${selectedCourse._id}`, updateInfo)
       .then((res) => {
 
         const success =
@@ -164,7 +164,7 @@ const text = "My Added Course!";
         if (success) {
           Swal.fire("Updated!", "Your course has been updated.", "success");
 
-         
+
           setMyCourses((prev) =>
             prev.map((c) =>
               c._id === selectedCourse._id ? { ...c, ...updateInfo } : c
@@ -184,23 +184,23 @@ const text = "My Added Course!";
 
   return (
     <div className="min-h-screen px-4">
-        <motion.h1
-      className="text-4xl font-bold text-center my-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      {displayText}
-    </motion.h1>
-  
-    
+      <motion.h1
+        className="text-4xl font-bold text-center my-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {displayText}
+      </motion.h1>
+
+
 
       {loading ? (
         <div className="flex items-center justify-center h-40">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       ) : myCourses.length === 0 ? (
-        <p className="text-center text-gray-600">No courses found.</p>
+        <p className="text-center text-gray-600">No <span className="text-amber-700">courses</span> found.</p>
       ) : (
         <div className="overflow-x-auto mt-6">
           <table className="table table-auto w-full">

@@ -20,75 +20,76 @@ import CourseDetails from './page/CourseDetails.jsx'
 
 import MyCourseDetails from './page/MyCourseDetails.jsx'
 import Loading from './page/Loading/Loading.jsx'
+import Error from './page/Error.jsx'
 
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    // errorElement:<Error></Error>,
+    errorElement:<Error></Error>,
     element: <RootLayout></RootLayout>,
     children: [
       {
         path: '/', index: true,
-        element:(<Suspense fallback={<Loading></Loading>}><Home></Home></Suspense>)
-  
-      },
-      {
-         path:'courses',
-         element:(<Suspense fallback={<Loading></Loading>}><AllCourse></AllCourse></Suspense>),
-         
-      },
-      
-      {
-        path:'myEnrolledCourse',
-        element:<PrivateRoute><MyEnrolledCourse></MyEnrolledCourse></PrivateRoute>
-      },
-      {
-        path:'myAddedCourse',
-        element:<PrivateRoute><MyAddedCourse></MyAddedCourse></PrivateRoute>
-      },
-      {
-        path:'addCourse',
-        loader:({params})=>fetch(`http://localhost:3000/myCourse/${params.id}`),
-        element:<PrivateRoute><AddCoursePage></AddCoursePage></PrivateRoute>
-      },
-      {
-        path:'login',
-        element:<Suspense fallback={<Loading></Loading>}><Login></Login></Suspense>
-      },
-      {
-        path:'register',
-        element:<Suspense fallback={<Loading></Loading>}><Register></Register></Suspense>
-      },
-      {
-        path:'courses/:id',
-        loader:()=>fetch(`https://omega-learn-server.vercel.app/courses`),
-        element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
-       
-        
-      },
-      {
-        path:'myCourse/:id',
-        loader:({params})=>fetch(`http://localhost:3000/myCourse/${params.id}`),
-        element:<Suspense fallback={<Loading></Loading>}><MyCourseDetails></MyCourseDetails>,</Suspense>
-       
+        element: (<Suspense fallback={<Loading></Loading>}><Home></Home></Suspense>)
 
-        
+      },
+      {
+        path: 'courses',
+        element: (<Suspense fallback={<Loading></Loading>}><AllCourse></AllCourse></Suspense>),
+
+      },
+
+      {
+        path: 'myEnrolledCourse',
+        element: (<PrivateRoute><Suspense fallback={<Loading></Loading>}><MyEnrolledCourse></MyEnrolledCourse></Suspense></PrivateRoute>)
+      },
+      {
+        path: 'myAddedCourse',
+        element: <PrivateRoute><Suspense fallback={<Loading></Loading>}><MyAddedCourse></MyAddedCourse></Suspense></PrivateRoute>
+      },
+      {
+        path: 'addCourse',
+        loader: ({ params }) => fetch(`https://omega-learn-server.vercel.app/myCourse/${params.id}`),
+        element: <PrivateRoute><AddCoursePage></AddCoursePage></PrivateRoute>
+      },
+      {
+        path: 'login',
+        element: <Suspense fallback={<Loading></Loading>}><Login></Login></Suspense>
+      },
+      {
+        path: 'register',
+        element: <Suspense fallback={<Loading></Loading>}><Register></Register></Suspense>
+      },
+      {
+        path: 'courses/:id',
+        loader: () => fetch(`https://omega-learn-server.vercel.app/courses`),
+        element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+
+
+      },
+      {
+        path: 'myCourse/:id',
+        loader: ({ params }) => fetch(`https://omega-learn-server.vercel.app/myCourse/${params.id}`),
+        element: <Suspense fallback={<Loading></Loading>}><MyCourseDetails></MyCourseDetails>,</Suspense>
+
+
+
 
 
       }
     ]
-   
+
 
   },
-   
+
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <AuthProvider>
-     <RouterProvider router={router}></RouterProvider>
-   </AuthProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>,
 )

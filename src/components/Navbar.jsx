@@ -1,6 +1,6 @@
 import React, { use,  } from 'react';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { FaMoon, FaSun } from "react-icons/fa6";
+
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import './Navbar.css'
