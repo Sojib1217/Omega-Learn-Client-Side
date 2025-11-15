@@ -49,14 +49,11 @@ const text = "My Added Course!";
     }
 
     setLoading(true);
-    axios
-      .get(`http://localhost:3000/myCourse?email=${user.email}`)
+    axios.get(`http://localhost:3000/myCourse?email=${user.email}`)
       .then((res) => {
         setMyCourses(res.data || []);
       })
-      .catch((err) => {
-        console.error("Failed to fetch courses:", err);
-        setMyCourses([]);
+      .catch(() => {
       })
       .finally(() => setLoading(false));
   }, [user?.email]);
@@ -111,8 +108,8 @@ const text = "My Added Course!";
               setMyCourses((prev) => prev.filter((c) => c._id !== _id));
             } 
           })
-          .catch((err) => {
-            console.error(err);
+          .catch(() => {
+            // console.error(err);
           ;
           });
       }
@@ -131,7 +128,7 @@ const text = "My Added Course!";
     if (updateModal.current) {
     updateModal.current.close();
     }
-    setSelectedCourse(null);
+   ;
   };
 
   const handleFormChange = (e) => {
@@ -156,8 +153,7 @@ const text = "My Added Course!";
       isFeatured: !!form.isFeatured,
     };
 
-    axios
-      .patch(`http://localhost:3000/myCourse/${selectedCourse._id}`, updateInfo)
+    axios.patch(`http://localhost:3000/myCourse/${selectedCourse._id}`, updateInfo)
       .then((res) => {
 
         const success =
@@ -197,7 +193,7 @@ const text = "My Added Course!";
       {displayText}
     </motion.h1>
   
-      {/* <h1 className="text-4xl font-bold text-center my-6">My Added Course</h1> */}
+    
 
       {loading ? (
         <div className="flex items-center justify-center h-40">
