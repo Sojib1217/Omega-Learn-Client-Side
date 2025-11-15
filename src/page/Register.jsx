@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
 
@@ -39,6 +40,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                toast('Register Successful')
                 console.log(user)
                 updateUser({ displayName: name, photoURL: image })
                     .then(() => {
@@ -57,8 +59,8 @@ const Register = () => {
 
     const handleGoogleLogin=()=>{
      signInWithGoogle()
-     .then(result=>{
-        console.log(result.user)
+     .then(()=>{
+        toast('Login Successful')
         navigate('/')
      })
      .catch(error=>{
@@ -133,6 +135,7 @@ const handleTogglePassword = (event) => {
                                 SignUp with Google
                             </button>
                         </form>
+                        <ToastContainer></ToastContainer>
                     </div>
                 </div>
 

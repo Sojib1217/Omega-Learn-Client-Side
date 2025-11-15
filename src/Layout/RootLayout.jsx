@@ -4,6 +4,7 @@ import { Outlet, useNavigation } from 'react-router';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from '../components/footer';
+import Loading from '../page/Loading/Loading';
 
 
 
@@ -19,7 +20,7 @@ const RootLayout = () => {
 
   return (
     <div className=' bg-gray-100'>
-      <header>
+      <header className='sticky top-0 z-50'>
 
         <Navbar></Navbar>
       </header>

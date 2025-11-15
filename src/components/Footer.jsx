@@ -12,7 +12,7 @@ const Footer = () => {
        <img className='w-20 h-20 ' src={logo} alt="" />
           <h1 className='text-3xl font-bold'>OmegaLearn</h1>
        </div>
-          <p className='mt-2'>GreenNest is an elegant single-page web application built for plant lovers who want to nurture and decorate their homes with healthy indoor plants. The platform allows users to explore plant care guides, buy plants, and book expert consultations — ensuring a greener and healthier living space during any season.</p>
+          <p className='mt-2'></p>OmegaLearn is An online learning platform where learners explore new skills and creators share their knowledge with the world. Empowering education through accessible, high-quality courses for everyone.
       </nav>
       <nav className='flex flex-col space-y-3'>
         <h6 className="footer-title">Services</h6>

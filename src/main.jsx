@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       {
         path:'courses/:id',
         loader:()=>fetch(`https://omega-learn-server.vercel.app/courses`),
-        element:<PrivateRoute><Suspense fallback={<Loading></Loading>}><CourseDetails></CourseDetails></Suspense></PrivateRoute>,
+        element:<PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
        
         
       },

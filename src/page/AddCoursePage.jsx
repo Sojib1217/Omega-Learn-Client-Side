@@ -44,9 +44,9 @@ console.log(user)
     }
 
     return (
-        <div className='px-4 md:px-20 bg-cyan-100 '>
+        <div className='px-4 mb-10 md:px-20 bg-cyan-100 '>
             <h1 className='text-4xl font-bold text-center py-10'>Add Your Course</h1>
-            <form onSubmit={handleAddCourse} className='w-[800px] border-2 border-gray-300 bg-white rounded-2xl p-4 mx-auto'>
+            <form onSubmit={handleAddCourse} className=' md:w-[800px] border-2 border-gray-300 bg-white rounded-2xl p-4 mx-auto shadow-[8px_8px_0px_#1a1a1a]'>
                 <div className='flex gap-4 justify-between' >
                     <fieldset className='w-full' >
                 <h1 className='text-2xl font-semibold my-4 text-center'>Course Details</h1>
