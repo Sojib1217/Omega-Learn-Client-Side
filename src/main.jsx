@@ -20,14 +20,14 @@ import CourseDetails from './page/CourseDetails.jsx'
 
 import MyCourseDetails from './page/MyCourseDetails.jsx'
 import Loading from './page/Loading/Loading.jsx'
-import Error from './page/Error.jsx'
+
 
 
 const router = createBrowserRouter([
   {
     path: '/',
+    // errorElement:<Error></Error>,
     element: <RootLayout></RootLayout>,
-    errorElement:<Error></Error>,
     children: [
       {
         path: '/', index: true,
@@ -50,6 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path:'addCourse',
+        loader:({params})=>fetch(`http://localhost:3000/myCourse/${params.id}`),
         element:<PrivateRoute><AddCoursePage></AddCoursePage></PrivateRoute>
       },
       {

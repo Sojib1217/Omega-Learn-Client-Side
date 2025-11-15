@@ -5,13 +5,19 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import './Navbar.css'
 import logo from '../assets/logo.png'
 
+import { toast, ToastContainer } from 'react-toastify';
+
 
 const Navbar = () => {
     const { logout, user } = use(AuthContext)
 
 
     const handleLogout = () => {
-        logout().then(() => alert('you logout successfully')).catch(error => console.log(error))
+        logout()
+            .then(() => {
+                toast('Logout Successful')
+            })
+            .catch(error => console.log(error))
     }
 
 
@@ -71,7 +77,7 @@ const Navbar = () => {
                 <div className="navbar-end gap-2">
 
                     {/* dark mode */}
-                    
+
 
 
                     {/* buttons */}
@@ -87,7 +93,7 @@ const Navbar = () => {
                             </div>
                     }
 
-
+                    <ToastContainer/>
                 </div>
             </div>
         </div>

@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAnPsvFEMYsAOJ3Zeea2Hoyj-pOzex_xZI",
-  authDomain: "omega-learn-client.firebaseapp.com",
-  projectId: "omega-learn-client",
-  storageBucket: "omega-learn-client.firebasestorage.app",
-  messagingSenderId: "67856578519",
-  appId: "1:67856578519:web:6a22acd65d936711257d92"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

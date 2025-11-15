@@ -2,45 +2,47 @@ import React, { use, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const Login = () => {
-const {signIn,signInWithGoogle}=use(AuthContext)
+    const { signIn, signInWithGoogle } = use(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
-    const [error,setError]=useState("")
-    const navigate=useNavigate()
-    const location=useLocation()
+    const [error, setError] = useState("")
+    const navigate = useNavigate()
+    const location = useLocation()
 
-   const handleLogin = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         // console.log({email,password})
         signIn(email, password)
-            .then(result => {
-                const user=result.user
-                console.log(user)
+            .then(() => {
+                toast('Login Successful')
                  navigate(`${location.state ? location.state : '/'}`)
-              
+                
+
             })
             .catch(error => {
                 setError(error.message)
             })
     }
 
-    const handleGoogleLogin=()=>{
-     signInWithGoogle()
-     .then(result=>{
-        console.log(result.user)
-        navigate('/')
-     })
-     .catch(error=>{
-        console.log(error)
-     })
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(() => {
+                toast('Login Successful')
+                   navigate(`${location.state ? location.state : '/'}`)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
-  
+
     const handleTogglePassword = (event) => {
         event.preventDefault()
         setShowPassword(!showPassword)
@@ -73,7 +75,7 @@ const {signIn,signInWithGoogle}=use(AuthContext)
                                     className="w-full border border-[#1a1a1a] rounded-xl px-4 py-3 mb-4 outline-none focus:ring-2 focus:ring-black" />
                                 <button onClick={handleTogglePassword} className=" absolute top-4 right-6">{showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
                             </div>
-                              {error && <p className='text-red-500 text-xs'>Invalid Password</p>}
+                            {error && <p className='text-red-500 text-xs'>Invalid Password</p>}
                             <div className="mb-2">
                                 <p className="text-blue-600 hover:underline text-sm">Forget Password</p>
                             </div>
@@ -91,6 +93,7 @@ const {signIn,signInWithGoogle}=use(AuthContext)
                             Login with Google
                         </button>
                     </form>
+                     <ToastContainer/>
 
                 </div>
             </div>
